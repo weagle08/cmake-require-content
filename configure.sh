@@ -14,7 +14,7 @@ while getopts ctdov: option; do
         d)
         BUILD_TYPE="-DCMAKE_BUILD_TYPE=Debug";;
         t)
-        BUILD_TEST="-DBUILD_TESTS=ON";;        
+        BUILD_TESTS="-DBUILD_TESTS=ON";;        
         o)
         BUILD_OFFLINE="-DBUILD_OFFLINE=ON";;       
         *)
@@ -27,5 +27,5 @@ if [ "${CLEAN}" == "1" ]; then
     cmake --build ./build --target clean 
     exit
 else    
-    cmake ${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=install ${BUILD_TEST} ${BUILD_OFFLINE} ${DEP_TAG} -S ./ -B ./build
+    cmake ${BUILD_TYPE} -DCMAKE_INSTALL_PREFIX=install ${BUILD_TESTS} ${BUILD_OFFLINE} -S ./ -B ./build
 fi
